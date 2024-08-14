@@ -1,4 +1,5 @@
 const grad = document.getElementById("grad");
+const text = document.getElementById("text");
 
 let i = 0;
 let turn = true;
@@ -24,7 +25,12 @@ function changeGrad() {
       )`;
 
   grad.style.background = bkg;
+  text.style.background = bkg;
+  text.style.backgroundClip = "text";
   i += turn ? 1 : -1;
+  if (i == -1) {
+    i = x;
+  }
 }
 
 setInterval(changeGrad, 30);
