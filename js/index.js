@@ -10,10 +10,10 @@ function changeTurn() {
 
 function changeGrad() {
   const ww = 3;
-  const w = i <= ww ? i : ww;
+  const w = Math.abs(i) <= ww ? Math.abs(i) : ww;
   const x = 100 + w;
-  i %= x;
-  const a = i % x;
+  // i %= x;
+  const a = Math.abs(i) % x;
   const b = (a + w) % x;
   const c = (b + w) % x;
 
@@ -28,8 +28,11 @@ function changeGrad() {
   text.style.background = bkg;
   text.style.backgroundClip = "text";
   i += turn ? 1 : -1;
-  if (i == -1) {
+  if (i == -ww && !turn) {
     i = x;
+  }
+  if (i == x && turn) {
+    i = -ww;
   }
 }
 
